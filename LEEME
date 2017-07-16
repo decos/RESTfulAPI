@@ -1,0 +1,2 @@
+-- CREAR UN PROYECTO EN LARAVEL
+	 composer create-project laravel/laravel=5.0 RESTfulAPI
