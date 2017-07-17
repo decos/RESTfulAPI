@@ -21,5 +21,11 @@
 	
 	- Gestor de plantillas que usa Laravel: BLADE
 
+-- CREANDO NUESTROS MODELOS (API de vehículos)
+	- En la version 4 se extendia de "Eloquent" , en la version 5 extiende de "Model".
+	- Atributo "fillable", atributos que pueden ser asignados de manera masiva.
+	- Se crearan dos modelos: Vehiculo y Fabricante	con sus respectivas relaciones.
+
+-- CONSTRUYENDO BASE DE DATOS CON LARAVEL	 
 
 	
