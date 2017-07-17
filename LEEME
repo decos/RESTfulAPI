@@ -1,2 +1,25 @@
--- CREAR UN PROYECTO EN LARAVEL
+-- CREAR UN PROYECTO EN LARAVEL 5.0
 	 composer create-project laravel/laravel=5.0 RESTfulAPI
+
+	FEDORA
+	- Realizar lo siguiente por línea de comandos si tienes problemas haciendo "composer install":
+		1. yum install mcrypt
+		2. yum install php5-mcrypt
+		3. Añadir a php.ini: extension=mcrypt.so (no es seguro)
+
+	LINUX
+	- Realizar lo siguiente por línea comandos:
+		1. chmod -R 777 storage
+		2. chmod -R 777 bootstrap
+
+-- ESTRUCTURA
+	- Basado en la arquitectura MVC
+	- Modelos: Dentro del directorio "app"
+	- Vistas: Dentro del directorio "resources/views"
+	- Controladores: Dentro del directorio "app/Http/Controllers"
+	- Rutas: Dentro del directorio "app/Http"
+	
+	- Gestor de plantillas que usa Laravel: BLADE
+
+
+	
