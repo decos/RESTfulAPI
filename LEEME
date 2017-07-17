@@ -26,6 +26,33 @@
 	- Atributo "fillable", atributos que pueden ser asignados de manera masiva.
 	- Se crearan dos modelos: Vehiculo y Fabricante	con sus respectivas relaciones.
 
--- CONSTRUYENDO BASE DE DATOS CON LARAVEL	 
+-- CONSTRUYENDO BASE DE DATOS CON LARAVEL
+	- Migracion: "database/migrations"
+
+	- Comandos por consola:
+		php artisan list		
+		php artisan make:migration --help
+
+	1. Configuracion de la Base de Datos
+		- Configurar los parametros DB_HOST=localhost, DB_DATABASE=api, DB_USERNAME=root, DB_PASSWORD= en el siguiente archivo:
+		/opt/lampp/htdocs/RESTfulAPI/.env
+
+	2. Crear la base de datos "api" desde "phpmyadmin"
+	3. Preparar los arhivos de migracion .php para la creacion de tablas usando "artisan"
+		php artisan make:migration fabricantes_migration --create=fabricantes
+		php artisan make:migration vehiculos_migration --create=vehiculos
+		
+	4. Agregar a los archivos de migracion las columnas que faltan
+		/opt/lampp/htdocs/RESTfulAPI/database/migrations/2017_07_17_223544_vehiculos_migration.php
+		/opt/lampp/htdocs/RESTfulAPI/database/migrations/2017_07_17_223515_fabricantes_migration.php
+
+	5. Ejecutar en consola lo siguiente para crear la tabla "migrations" en la base de datos,
+		la cual llevara un control de los cambios que se daran en la base de datos
+		php artisan migrate:install
+
+	6. Ejecutar en consola:
+		php artisan migrate
+		
+			  
 
 	
