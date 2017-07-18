@@ -78,6 +78,6 @@
 		php artisan db:seed
 
 	- ERRORES:
-		La Clase VehiculoSeeder no existe.
+		La Clase VehiculoSeeder no existe, composer no ha hecho la carga de la clase Seeder que hemos creado.
 		SOL: composer dump-autoload
 	
