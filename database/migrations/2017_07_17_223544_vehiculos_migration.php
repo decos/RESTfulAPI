@@ -22,7 +22,7 @@ class VehiculosMigration extends Migration {
                                                 $table->float("peso");
                                                 //Clave Foranea
                                                 //Unsigned=No tiene signo (siempre seran valores positivos)
-                                                $table->integer("fabricante_id")->unsigned;
+                                                $table->integer("fabricante_id")->unsigned();
                                                 $table->foreign("fabricante_id")->references("id")->on("fabricantes");
                                                 //
 			$table->timestamps();
