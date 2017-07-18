@@ -52,7 +52,32 @@
 
 	6. Ejecutar en consola:
 		php artisan migrate
-		
-			  
 
+	7. Para deshacer los cambios o si tuviesemos un error, escribiriamos por consola:
+		php artisan migrate:rollback
+
+-- POBLANDO LA BASE DE DATOS USANDO LARAVEL 
+	
+	SEEDS
+	- Son una serie de instrucciones que se ejecutan y estan en el siguiente directorio
+		/opt/lampp/htdocs/RESTfulAPI/database/seeds
+	
+	- Buscar librerias en Composer relacionadas con la palabra "faker"	  
+		composer search faker
+	
+	- Descargar el proyecto "fzaninotto/faker" usando composer
+		composer require fzaninotto/faker --dev
+
+	- Creamos el fichero "FabricanteSeeder" 
+		/opt/lampp/htdocs/RESTfulAPI/database/seeds/FabricanteSeeder.php
+
+	- Creamos el fichero "VehiculoSeeder" 
+		/opt/lampp/htdocs/RESTfulAPI/database/seeds/VehiculoSeeder.php
+
+	- Para ejecutar los Seeders
+		php artisan db:seed
+
+	- ERRORES:
+		La Clase VehiculoSeeder no existe.
+		SOL: composer dump-autoload
 	
