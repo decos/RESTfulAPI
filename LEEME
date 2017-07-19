@@ -89,4 +89,6 @@
 		/opt/lampp/htdocs/RESTfulAPI/app/Http/routes.php
 
 -- CREAR CONTROLADORES PARA LA API
-		
+	Crear los siguientes controladores:
+		1. /opt/lampp/htdocs/RESTfulAPI/app/Http/Controllers/FabricanteController.php
+		2. /opt/lampp/htdocs/RESTfulAPI/app/Http/Controllers/VehiculoController.php
