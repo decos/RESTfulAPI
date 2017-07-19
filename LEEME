@@ -80,4 +80,13 @@
 	- ERRORES (CLÁSICO):
 		La Clase VehiculoSeeder no existe, composer no ha hecho la carga de la clase Seeder que hemos creado.
 		SOL: composer dump-autoload
-	
+
+-- CREAR RUTAS REST 
+	- Lista de rutas que actualmente estan configuradas en nuestro proyecto
+		php artisan route:list
+
+	1. Agregar las "rutas" al siguiente archivo:
+		/opt/lampp/htdocs/RESTfulAPI/app/Http/routes.php
+
+-- CREAR CONTROLADORES PARA LA API
+		

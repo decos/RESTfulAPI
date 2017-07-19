@@ -12,6 +12,7 @@
 */
 
 //Route::get('/', 'WelcomeController@index');
+/*
 Route::get('/', 'MyController@index');
 
 Route::get('home', 'HomeController@index');
@@ -20,3 +21,12 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+*/
+
+//Route::resource('vehiculos','VehiculoController');
+
+//Sale de la filosofia REST
+Route::get('/','VehiculoController@showAll');
+//REST
+Route::resource('fabricantes','FabricanteController');
+Route::resource('fabricantes.vehiculos','VehiculoController');
