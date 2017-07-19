@@ -77,7 +77,7 @@
 	- Para ejecutar los Seeders
 		php artisan db:seed
 
-	- ERRORES:
+	- ERRORES (CLÁSICO):
 		La Clase VehiculoSeeder no existe, composer no ha hecho la carga de la clase Seeder que hemos creado.
 		SOL: composer dump-autoload
 	
