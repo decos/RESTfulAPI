@@ -25,8 +25,10 @@ Route::controllers([
 
 //Route::resource('vehiculos','VehiculoController');
 
-//Sale de la filosofia REST
-Route::get('/','VehiculoController@showAll');
+//Sale de la filosofia REST (no es correcto)
+//Route::get('/','VehiculoController@showAll');
+
 //REST
+Route::resource('vehiculos', 'VehiculoController');
 Route::resource('fabricantes','FabricanteController');
-Route::resource('fabricantes.vehiculos','VehiculoController');
+Route::resource('fabricantes.vehiculos','FabricanteVehiculoController');

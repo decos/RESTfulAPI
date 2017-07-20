@@ -12,6 +12,9 @@
 		1. chmod -R 777 storage
 		2. chmod -R 777 bootstrap
 
+	ARTISAN
+	- Entre las herramientas que Laravel nos proporciona para el desarrollo de aplicaciones se encuentra Artisan, la interfaz de línea de comandos (CLI por sus siglas en inglés de Command-line interface), la cual es un medio para la interacción con la aplicación. 
+
 -- ESTRUCTURA
 	- Basado en la arquitectura MVC
 	- Modelos: Dentro del directorio "app"
@@ -92,3 +95,11 @@
 	Crear los siguientes controladores:
 		1. /opt/lampp/htdocs/RESTfulAPI/app/Http/Controllers/FabricanteController.php
 		2. /opt/lampp/htdocs/RESTfulAPI/app/Http/Controllers/VehiculoController.php
+
+
+-- MEJORANDO RUTAS Y CONTROLADORES
+	1. Agregar la siguiente ruta: Route::resource('vehiculos', 'VehiculoController');
+	2. Cambiar el nombre del fichero:
+		VehiculoController > FabricanteVehiculoController
+	3. Ejecutar la siguiente linea de comando para la creacion del controlador "VehiculoController"
+		php artisan make:controller VehiculoController
