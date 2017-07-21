@@ -112,3 +112,18 @@
 	  	composer dump-autoload
 
   	4. Usar "only" o "except" segun corresponda en el fichero "routes.php"
+
+-- MOSTRANDO VALORES DE UN RECURSO
+	
+	Mostrando todos los fabricantes
+		http://localhost/RESTfulAPI/public/fabricantes
+
+	1. Agregar la clase al controlador Fabricante
+	2. Modificar la funcion index del controlador Fabricante
+		return Fabricante::all();
+	3. Esconder atributos 
+		C:\xampp\htdocs\RESTfulAPI\app\Fabricante.php
+
+	Mostrando un solo fabricante
+		http://localhost/RESTfulAPI/public/fabricantes/6
+		
