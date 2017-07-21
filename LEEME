@@ -99,7 +99,16 @@
 
 -- MEJORANDO RUTAS Y CONTROLADORES
 	1. Agregar la siguiente ruta: Route::resource('vehiculos', 'VehiculoController');
-	2. Cambiar el nombre del fichero:
+	2. Cambiar el nombre del fichero y el nombre de la clase:
 		VehiculoController > FabricanteVehiculoController
 	3. Ejecutar la siguiente linea de comando para la creacion del controlador "VehiculoController"
 		php artisan make:controller VehiculoController
+	
+	- ERRORES (CLÁSICO):
+	 	php artisan route:list
+		[ReflectionException]
+		Class App\Http\Controllers\VehiculoController does not exist
+	  SOLUCION:
+	  	composer dump-autoload
+
+  	4. Usar "only" o "except" segun corresponda en el fichero "routes.php"

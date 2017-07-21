@@ -1,12 +1,14 @@
 <?php namespace App\Http\Controllers;
+
 use App\Http\Requests\Request;
 use App\Http\Controllers\Controller;
-class VehiculoController extends Controller{
-        
+
+class FabricanteVehiculoController extends Controller{
+        /*
         public function showAll(){
                 return "Mostrando todos los vehiculos";
         }
-    
+        */
     
         public function index($id){
                 return "Mostrando los vehiculos del fabricantes con id: ".$id;

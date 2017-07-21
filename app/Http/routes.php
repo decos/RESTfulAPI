@@ -29,6 +29,6 @@ Route::controllers([
 //Route::get('/','VehiculoController@showAll');
 
 //REST
-Route::resource('vehiculos', 'VehiculoController');
+Route::resource('vehiculos', 'VehiculoController', array('only' => array('index', 'show')));
 Route::resource('fabricantes','FabricanteController');
-Route::resource('fabricantes.vehiculos','FabricanteVehiculoController');
+Route::resource('fabricantes.vehiculos','FabricanteVehiculoController', array('except' => array('show')));
