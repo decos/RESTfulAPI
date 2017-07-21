@@ -127,3 +127,18 @@
 	Mostrando un solo fabricante
 		http://localhost/RESTfulAPI/public/fabricantes/6
 		
+--MOSTRANDO VALORES DE RECURSOS ANIDADOS
+	
+	Mostrando todos los vehiculos
+		http://localhost/RESTfulAPI/public/vehiculos
+
+	Mostarando un solo vehiculo
+		http://localhost/RESTfulAPI/public/vehiculos/6
+
+	Mostrando recursos anidados
+		http://localhost/RESTfulAPI/public/fabricantes/1/vehiculos
+
+		1. Modificacion la funcion "index" del controlador "FabricanteVehiculoController"
+
+
+

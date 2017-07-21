@@ -1,7 +1,12 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests\Request;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
+use Illuminate\Http\Request;
+
+use App\Fabricante;
+use App\Vehiculo;
 
 class FabricanteVehiculoController extends Controller{
         /*
@@ -11,7 +16,20 @@ class FabricanteVehiculoController extends Controller{
         */
     
         public function index($id){
-                return "Mostrando los vehiculos del fabricantes con id: ".$id;
+                //return "Mostrando los vehiculos del fabricantes con id: ".$id;
+
+                $fabricante  = Fabricante::find($id);
+
+                if(!$fabricante){
+                        return response()->json(array(
+                                'mensaje' => 'No se encuentra este fabricante', 
+                                'codigo' => 404), 404);
+                } 
+
+                return response()->json(array(
+                        'datos' => $fabricante->vehiculos
+                        ), 200);
+                //return response()->json($fabricante->vehiculos()->get(), 200);
         }
         
         //fabricantes/{fabricantes}/vehiculos/create

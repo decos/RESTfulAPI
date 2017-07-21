@@ -35,7 +35,7 @@ class FabricanteController extends Controller{
                                 'mensaje' => 'No se encuentra este fabricante', 
                                 'codigo' => 404), 404);
                 } 
-
+                
                 return response()->json(array(
                         'datos' => $fabricante), 200);
         }
