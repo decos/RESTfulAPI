@@ -23,7 +23,7 @@ class FabricanteController extends Controller{
         }
         
         public function store(){
-            
+                return "Recibiendo";
         }
         
         public function show($id){

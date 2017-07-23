@@ -140,5 +140,27 @@
 
 		1. Modificacion la funcion "index" del controlador "FabricanteVehiculoController"
 
+--EL PROBLEMA CON EL MIDDLEWARE PARA CSRF, Y SU FUNCIÓN
 
+	CSRF (Token de Seguridad)
+		Medida de seguridad que el usuario haga cambios sobre los formularios (agregar campos o eliminar campos)
+
+	MIDDLEWARE (filtros)
+		Sustituye a los filtros en Laravel 5
+
+		- Carpeta Middleware:
+			/app/Http/Middleware
+
+		El siguiente fichero, se encarga de cargar los filtros:
+			/app/Http/Kernel.php
+
+			protected $middleware - Se cargaran siempre en cada una de las peticiones que se hacen a nuestro servicio web o API RESTful
+
+
+			protected $routeMiddleware - Se cargaran de manera opcional, cuando se les llame.
+
+		'App\Http\Middleware\VerifyCsrfToken'
+			Realiza la verificacion del Token CSRF
+
+			-Deshabilitarlo unicamente si nunca vamos a utilizar formularios
 
