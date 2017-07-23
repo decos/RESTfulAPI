@@ -13,16 +13,16 @@ class FabricanteSeeder extends Seeder {
 	 */
 	public function run()
 	{
-                        $faker = Faker::create();
-                        
-                        for($i=0; $i<3; $i++){
-                                Fabricante::create(
-                                        array(
-                                                'nombre' => $faker->word(),
-                                                'telefono' => $faker->randomNumber(7),
-                                        )
-                                );
-                        }
+                $faker = Faker::create();
+                
+                for($i=0; $i<3; $i++){
+                        Fabricante::create(
+                                array(
+                                        'nombre' => $faker->word(),
+                                        'telefono' => $faker->randomNumber(7),
+                                )
+                        );
+                }
                         
 	}
 

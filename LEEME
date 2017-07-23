@@ -164,3 +164,36 @@
 
 			-Deshabilitarlo unicamente si nunca vamos a utilizar formularios
 
+--AUTENTICACION BASICA Y MIDDLEWARES
+
+	- Laravel ya nos provee un MIDDLEWARE correctamente definido
+
+	- Modelo USER: viene por defecto con la instalación de Laravel
+		C:\xampp\htdocs\RESTfulAPI\app\User.php
+
+
+	1. Crear la migración
+		php artisan make:migration user --create=users
+
+	2. Agregar los campos (email, password) al fichero:
+		C:\xampp\htdocs\RESTfulAPI\database\migrations\2017_07_23_044655_user.php
+
+	3. Procesar la migración 
+		Creamos la tabla 'users' en la base de datos.
+		php artisan migrate
+
+	4. Crear el Seeder 'UserSeeder'
+
+	5. Ejecutar por consola lo siguiente:
+		composer dump-autoload
+		php artisan db:seed
+
+	EJECUTAR TODO DESDE UN INICIO
+		php artisan migrate:refresh --seed
+
+	6. Agregar filtro a un controlador
+		public function __construct()
+		{
+			$this->middleware('auth.basic');
+		}
+

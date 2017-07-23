@@ -14,21 +14,21 @@ class VehiculoSeeder extends Seeder {
 	 */
 	public function run()
 	{
-                        $faker = Faker::create();
-                        
-                        $cantidad = Fabricante::all()->count();
-                        
-                        for($i=0; $i<$cantidad; $i++){
-                                Vehiculo::create(
-                                        array(
-                                                'color' => $faker->safeColorName(),
-                                                'cilindraje' => $faker->randomFloat(),
-                                                'potencia' => $faker->randomNumber(),
-                                                'peso' => $faker->randomFloat(),
-                                                'fabricante_id' => $faker->numberBetween(1, $cantidad),
-                                        )
-                                );
-                        }
+                $faker = Faker::create();
+                
+                $cantidad = Fabricante::all()->count();
+                
+                for($i=0; $i<$cantidad; $i++){
+                        Vehiculo::create(
+                                array(
+                                        'color' => $faker->safeColorName(),
+                                        'cilindraje' => $faker->randomFloat(),
+                                        'potencia' => $faker->randomNumber(),
+                                        'peso' => $faker->randomFloat(),
+                                        'fabricante_id' => $faker->numberBetween(1, $cantidad),
+                                )
+                        );
+                }
 	}
 
 }

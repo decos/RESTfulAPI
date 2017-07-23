@@ -9,6 +9,13 @@ use App\Fabricante;
 
 class FabricanteController extends Controller{
         
+        public function __construct()
+        {
+                $this->middleware('auth.basic', array(
+                                'only' => array('store', 'update', 'destroy')
+                        ));
+        }
+
         public function index(){
                 //return "Mostrando todos los fabricantes";
                 //return Fabricante::all();
@@ -17,13 +24,13 @@ class FabricanteController extends Controller{
                 
 
         }
-        
+        /*
         public function create(){
                 return "Mostrando formulario para crear un fabricante";
         }
-        
+        */
         public function store(){
-                return "Recibiendo";
+                return "Peticion recibida";
         }
         
         public function show($id){
@@ -39,11 +46,11 @@ class FabricanteController extends Controller{
                 return response()->json(array(
                         'datos' => $fabricante), 200);
         }
-        
+        /*
         public function edit($id){
                 return "mostrando formulario para editar el fabricante con id: ".$id;
         }
-    
+        */
         public function update($id){
             
         }
