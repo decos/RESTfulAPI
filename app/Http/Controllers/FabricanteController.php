@@ -29,8 +29,16 @@ class FabricanteController extends Controller{
                 return "Mostrando formulario para crear un fabricante";
         }
         */
-        public function store(){
-                return "Peticion recibida";
+        public function store(Request $request)
+        {
+                if(!$request->input('nombre') || !$request->input('telefono')){
+                        return response()->json(array(
+                                'mensaje' => 'No se pudieron procesar los valores', 
+                                'codigo' => 422), 422);
+                }
+                Fabricante::create($request->all());
+                return response()->json(array('mensaje' => 'Fabricante insertado'), 201);
+                //return "Peticion recibida";
         }
         
         public function show($id){

@@ -197,3 +197,7 @@
 			$this->middleware('auth.basic');
 		}
 
+--ALMACENANDO DATOS USANDO INYECCION DE DEPENDENCIAS
+
+	1. Implementando la función "store" del controlador "Fabricante"
+	2. Implementando la función "store" del controlador "FabricanteVehiculo"

@@ -12,7 +12,9 @@ class FabricanteVehiculoController extends Controller{
         
         public function __construct()
         {
-                $this->middleware('auth.basic');
+                $this->middleware('auth.basic', array(
+                                'only' => array('store', 'update', 'destroy')
+                        ));
         }
 
         /*
@@ -43,8 +45,30 @@ class FabricanteVehiculoController extends Controller{
                 return "mostrando formulario para agregar vehiculo al fabricante: ".$id;
         }
         
-        public function store(){
-            
+        public function store(Request $request){
+                //fabricante_id 5
+                //serie(autoincrement), no la necesitamos
+                //color 1
+                //cilindraje 2
+                //potencia 3
+                //peso 4
+
+                if(!$request->input('color') || !$request->input('cilindraje') || !$request->input('potencia') || !$request->input('peso') || !$request->input('fabricante_id')){
+                        return response()->json(array(
+                                'mensaje' => 'No se pudieron procesar los valores', 
+                                'codigo' => 422), 422);
+                }
+                
+                $fabricante = Fabricante::find($request->input('fabricante_id'));
+
+                if(!$fabricante){
+                        return response()->json(array('mensaje' => 'No existe el fabricante asociado', 
+                                'codigo' => 404), 404);
+                }
+
+                $fabricante->vehiculos()->create($request->all());
+                return response()->json(array('mensaje' => 'Vehiculo insertado'), 201);
+                //return "Podemos insertar";
         }
         
         //fabricantes/{fabricantes}/vehiculos/{vehiculos}
