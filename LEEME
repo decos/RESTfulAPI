@@ -201,3 +201,11 @@
 
 	1. Implementando la función "store" del controlador "Fabricante"
 	2. Implementando la función "store" del controlador "FabricanteVehiculo"
+
+--REPARANDO LA INSERCION DE RECURSOS ANIDADOS
+
+	1. Agregar a la función el parametro "id"
+	2. Eliminar de la validación "fabricante_id"
+	3. Modificar la siguiente linea de codigo:
+		$fabricante = Fabricante::find($id); 
+	
