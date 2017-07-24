@@ -124,9 +124,6 @@ class FabricanteVehiculoController extends Controller{
                         return response()->json(array('mensaje' => 'Vehiculo editado PATCH'), 200);
                 } 
                 
-                $nombre = $request->input("nombre");
-                $telefono = $request->input("telefono");
-                
                 if(!$nombre || !$telefono){
                         return response()->json(array(
                                 'mensaje' => 'No se pudieron procesar los valores', 
