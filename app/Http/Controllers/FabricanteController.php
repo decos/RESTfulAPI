@@ -59,8 +59,51 @@ class FabricanteController extends Controller{
                 return "mostrando formulario para editar el fabricante con id: ".$id;
         }
         */
-        public function update($id){
-            
+        public function update(Request $request, $id){
+                
+                $metodo =  $request->method();
+                
+                $fabricante = Fabricante::find($id);
+                
+                if(!$fabricante){
+                        return response()->json(array('mensaje' => 'No se encuentra este fabricante', 
+                                'codigo' => 404), 404);
+                } 
+                
+                //Cuando no enviamos nada, la entidad no cambia
+                if($metodo === 'PATCH'){
+                        $nombre = $request->input("nombre");
+                        
+                        if($nombre != null && $nombre != ''){
+                                $fabricante->nombre = $nombre;
+                        }
+                        
+                        $telefono = $request->input("telefono");
+                        
+                        if($telefono != null && $telefono != ''){
+                                $fabricante->telefono = $telefono;
+                        }
+                        
+                        $fabricante->save();
+                        
+                        return response()->json(array('mensaje' => 'Fabricante editado PATCH'), 200);
+                } 
+                
+                $nombre = $request->input("nombre");
+                $telefono = $request->input("telefono");
+                
+                if(!$nombre || !$telefono){
+                        return response()->json(array(
+                                'mensaje' => 'No se pudieron procesar los valores', 
+                                'codigo' => 422), 422);
+                }
+                
+                $fabricante->nombre = $nombre;
+                $fabricante->telefono = $telefono;
+                
+                $fabricante->save();
+                
+                return response()->json(array('mensaje' => 'Fabricante editado PUT'), 200);
         }
         
         //PATCH

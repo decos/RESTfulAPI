@@ -197,15 +197,23 @@
 			$this->middleware('auth.basic');
 		}
 
---ALMACENANDO DATOS USANDO INYECCION DE DEPENDENCIAS
+--ALMACENANDO DATOS USANDO INYECCION DE DEPENDENCIAS (store)
 
 	1. Implementando la función "store" del controlador "Fabricante"
 	2. Implementando la función "store" del controlador "FabricanteVehiculo"
 
---REPARANDO LA INSERCION DE RECURSOS ANIDADOS
+--REPARANDO LA INSERCION DE RECURSOS ANIDADOS (store)
 
 	1. Agregar a la función el parametro "id"
 	2. Eliminar de la validación "fabricante_id"
 	3. Modificar la siguiente linea de codigo:
-		$fabricante = Fabricante::find($id); 
+		$fabricante = Fabricante::find($id);
+ 
+--ACTUALIZANDO VALORES DE UN RECURSO (put & patch)
+	-Implementación de la función "update" para el FABRICANTE
+		- Diferencia entre PUT y PATCH:
+		PUT: Cuando recibe una peticion realiza una sustitucion completa (debemos enviar todos los valores).
+		PATCH: Cuando recibe una peticion realiza una sustitucion incompleta.
+	
+--ACTUALIZANDO VALORES DE UN RECURSO ANIDADO
 	
