@@ -216,9 +216,9 @@
 		PATCH: Cuando recibe una peticion realiza una sustitucion incompleta.
 	
 --ACTUALIZANDO VALORES DE UN RECURSO ANIDADO
-	
-
-
+	- Modificar el metodo "update" del controlador "FabricanteVehiculo"
+	- La bandera tmb se añade al metodo "update" del controtador "Fabricante"
+	- 304 - Not Modified (No hay necesidad de retornar nada)
 
 
 

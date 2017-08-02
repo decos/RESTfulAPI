@@ -107,31 +107,50 @@ class FabricanteVehiculoController extends Controller{
                 $peso = $request->input("peso");
                 
                 if($metodo === 'PATCH'){
-                        $nombre = $request->input("nombre");
                         
-                        if($nombre != null && $nombre != ''){
-                                $vehiculo->nombre = $nombre;
+                        $bandera = false;
+
+                        if($color != null && $color != ''){
+                                $vehiculo->color = $color;
+                                $bandera = true;
                         }
                         
-                        $telefono = $request->input("telefono");
-                        
-                        if($telefono != null && $telefono != ''){
-                                $vehiculo->telefono = $telefono;
+                        if($cilindraje != null && $cilindraje != ''){
+                                $vehiculo->cilindraje = $cilindraje;
+                                $bandera = true;
                         }
-                        
-                        $vehiculo->save();
-                        
-                        return response()->json(array('mensaje' => 'Vehiculo editado PATCH'), 200);
+
+                        if($potencia != null && $potencia != ''){
+                                $vehiculo->potencia = $potencia;
+                                $bandera = true;
+                        }
+
+                        if($peso != null && $peso != ''){
+                                $vehiculo->peso = $peso;
+                                $bandera = true;
+                        }
+
+                        if($bandera){
+                            $vehiculo->save();
+                            return response()->json(array('mensaje' => 'Vehiculo editado PATCH'), 200);
+                        } else{
+                            //304 - Not Modified
+                            return response()->json(array('mensaje' => 'No se modifico ningun Vehículo PATCH'), 304);
+                        }
+
                 } 
                 
-                if(!$nombre || !$telefono){
+                if(!$color || !$cilindraje || !$potencia || !$peso){
+                        //422 - Unprocessable Entity
                         return response()->json(array(
                                 'mensaje' => 'No se pudieron procesar los valores', 
                                 'codigo' => 422), 422);
                 }
                 
-                $vehiculo->nombre = $nombre;
-                $vehiculo->telefono = $telefono;
+                $vehiculo->color = $color;
+                $vehiculo->cilindraje = $cilindraje;
+                $vehiculo->potencia = $potencia;
+                $vehiculo->peso = $peso;
                 
                 $vehiculo->save();
                 

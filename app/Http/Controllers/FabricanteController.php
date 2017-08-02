@@ -73,20 +73,29 @@ class FabricanteController extends Controller{
                 //Cuando no enviamos nada, la entidad no cambia
                 if($metodo === 'PATCH'){
                         $nombre = $request->input("nombre");
-                        
+                        $bandera = false;
+
                         if($nombre != null && $nombre != ''){
                                 $fabricante->nombre = $nombre;
+                                $bandera = true;
                         }
                         
                         $telefono = $request->input("telefono");
                         
                         if($telefono != null && $telefono != ''){
                                 $fabricante->telefono = $telefono;
+                                $bandera = true;
                         }
                         
-                        $fabricante->save();
+                        if($bandera){
+                                $fabricante->save();
                         
-                        return response()->json(array('mensaje' => 'Fabricante editado PATCH'), 200);
+                                return response()->json(array('mensaje' => 'Fabricante editado PATCH'), 200);
+                        }else{
+                                //304 - Not Modified
+                                return response()->json(array('mensaje' => 'No se modifico ningun Fabricante PATCH'), 304);
+                        }
+                        
                 } 
                 
                 $nombre = $request->input("nombre");
