@@ -220,8 +220,12 @@
 	- La bandera tmb se añade al metodo "update" del controtador "Fabricante"
 	- 304 - Not Modified (No hay necesidad de retornar nada)
 
+--ELIMINANDO RECURSOS A PETICION
+	- Modificar el metodo "destroy" del controlador "FabricanteVehiculo"
+	- 204 - No Content
+		La petición se ha completado con éxito pero su respuesta no tiene ningún contenido
 
-
-
-	
+	- Modificar el metodo "destroy" del controlador "Fabricante"
+	- 409 - Conflict
+		Indica que la solicitud no pudo ser procesada debido a un conflicto con el estado actual del recurso que esta identifica.
 	

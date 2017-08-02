@@ -134,7 +134,7 @@ class FabricanteVehiculoController extends Controller{
                             $vehiculo->save();
                             return response()->json(array('mensaje' => 'Vehiculo editado PATCH'), 200);
                         } else{
-                            //304 - Not Modified
+                            //304 - Not Modified (No hay necesidad de retornar nada)
                             return response()->json(array('mensaje' => 'No se modifico ningun Vehículo PATCH'), 304);
                         }
 
@@ -165,7 +165,31 @@ class FabricanteVehiculoController extends Controller{
         }*/
         
         public function destroy($idFabricante, $idVehiculo){
-            
+            //return "en destroy";
+
+            $fabricante = Fabricante::find($idFabricante);
+                
+            if(!$fabricante){
+                    return response()->json(array(
+                            'mensaje' => 'No se encuentra este fabricante', 
+                            'codigo' => 404), 404);
+            } 
+
+            $vehiculo = $fabricante->vehiculos()->find($idVehiculo);
+                
+            if(!$vehiculo){
+                    return response()->json(array(
+                            'mensaje' => 'No se encuentra el vehiculo asociado a ese fabricante', 
+                            'codigo' => 404), 404);
+            }
+
+            $vehiculo->delete();
+
+            //204 - No Content - La petición se ha completado con éxito pero su respuesta no tiene ningún contenido
+            //return response()->json(array('mensaje' => 'Vehiculo eliminado'), 204);
+
+            return response()->json(array('mensaje' => 'Vehiculo eliminado'), 200);
+
         }
     
 }
