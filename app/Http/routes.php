@@ -30,5 +30,31 @@ Route::controllers([
 
 //REST
 Route::resource('vehiculos', 'VehiculoController', array('only' => array('index', 'show')));
-Route::resource('fabricantes','FabricanteController');
-Route::resource('fabricantes.vehiculos','FabricanteVehiculoController', array('except' => array('show')));
+Route::resource('fabricantes','FabricanteController', array('except' => array('edit', 'create')));
+Route::resource('fabricantes.vehiculos','FabricanteVehiculoController', array('except' => array('show', 'edit' , 'create')));
+
+// Agregar un control de rutas inexistentes
+// Agregar un patron y pintarlo como una expresion regular que va coincidir con ello
+
+// Punto significa que va coincidir letras, numeros, caracteres
+// Asterisco se va repetir 0 a muchas veces
+Route::pattern('inexistentes', '.*');
+
+// Any significa que va coincidir con cualquier otro ruta, recurso, metodo
+// Codigo 400 BAD REQUEST
+Route::any('/{inexistentes}', function(){
+	return response()->json(
+		array(
+                'mensaje' => 'Ruta o metodos incorrectos.', 
+                'codigo' => 400), 
+	400);
+});
+
+
+
+
+
+
+
+
+

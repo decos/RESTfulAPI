@@ -33,7 +33,23 @@ class OnceAuth implements Middleware {
 	 */
 	public function handle($request, Closure $next)
 	{
-		return $this->auth->onceBasic() ?: $next($request);
+		$fallo = $this->auth->onceBasic();
+
+		if($fallo){
+			//return "fallo";
+
+			return response()->json(
+				array(
+                	'mensaje' => 'Se debe estar autenticado para esta petición', 
+                    'codigo' => 401), 
+			401);
+
+		}
+
+		return $next($request);
+
+		//Verificar si la autenticación falla
+		//return $this->auth->onceBasic() ?: $next($request);
 	}
 
 }

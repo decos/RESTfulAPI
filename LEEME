@@ -249,3 +249,24 @@ SECCION 4: MEJORANDO LA SEGURIDAD Y FUNCIONAMIENTO DE LA API
 
 			- Agregamos el nuevo filtro en los Controladores
 				Fabricante y VehiculoFabricante
+
+	MEJORANDO EL FUNCIONAMIENTO Y CALIDAD DEL API
+		1. Mensaje personalizado al fallar la aplicación
+
+			- Modificar la función handle del filtro "OnceAuth"
+
+		2. Eliminación de rutas innecesarias
+
+			- Modificar el archivo C:\xampp\htdocs\RESTfulAPI\app\Http\routes.php
+				ONLY y EXCEPT
+
+		3. Eliminar los metodos que sobran
+
+			- Ir a cada controlador y comentar o eliminar los metodos que no se usan
+
+		4. Agregar un control de rutas inexistentes
+
+			- Agregar un patron y pintarlo como una expresion regular que va coincidir con ello.
+				C:\xampp\htdocs\RESTfulAPI\app\Http\routes.php
+
+			- LARAVEL hace de manera secuencial las rutas

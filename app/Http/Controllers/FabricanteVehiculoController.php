@@ -41,9 +41,11 @@ class FabricanteVehiculoController extends Controller{
         }
         
         //fabricantes/{fabricantes}/vehiculos/create
+        /*
         public function create($id){
                 return "mostrando formulario para agregar vehiculo al fabricante: ".$id;
         }
+        */
         
         public function store(Request $request, $id){
                 //fabricante_id 5
@@ -72,14 +74,14 @@ class FabricanteVehiculoController extends Controller{
         }
         
         //fabricantes/{fabricantes}/vehiculos/{vehiculos}
-        public function show($idFabricante, $idVehiculo){
+        /*public function show($idFabricante, $idVehiculo){
                 return "mostrando vehiculo: ".$idVehiculo." del fabricante: ". $idFabricante;
-        }
+        }*/
         
         //fabricantes/{fabricantes}/vehiculos/{vehiculos}/edit
-        public function edit($idFabricante, $idVehiculo){
+        /*public function edit($idFabricante, $idVehiculo){
                 return "mostrando formulario para editar el vehiculo: $idVehiculo del fabricante $idFabricante";
-        }
+        }*/
     
         public function update(Request $request, $idFabricante, $idVehiculo){
                 
