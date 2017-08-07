@@ -229,3 +229,23 @@
 	- 409 - Conflict
 		Indica que la solicitud no pudo ser procesada debido a un conflicto con el estado actual del recurso que esta identifica.
 	
+SECCION 4: MEJORANDO LA SEGURIDAD Y FUNCIONAMIENTO DE LA API
+
+	HACKEANDO NUESTRA API POR MEDIO DE CSRF
+
+	IMPIDIENDO CSRF EN NUESTRA API CON UN MIDDLEWARE PROPIO
+		1. Modificar el archivo ".env"
+			SESSION_DRIVER=array (en vez de file)
+
+		2. Por medio de un Middleware
+			- Copiamos todo lo que este en el siguiente archivo:
+				C:\xampp\htdocs\RESTfulAPI\vendor\laravel\framework\src\Illuminate\Auth\Middleware\AuthenticateWithBasicAuth.php
+
+			- Creamos un nuevo middleware
+				C:\xampp\htdocs\RESTfulAPI\app\Http\Middleware\OnceAuth.php
+
+			- Modificamos el Kernel
+				'auth.basic.once' => 'App\Http\Middleware\OnceAuth',
+
+			- Agregamos el nuevo filtro en los Controladores
+				Fabricante y VehiculoFabricante

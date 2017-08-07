@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder {
 		//Model::unguard();
 
 		// $this->call('UserTableSeeder');
-        $this->call('FabricanteSeeder');
-        $this->call('VehiculoSeeder');
+        //$this->call('FabricanteSeeder');
+        //$this->call('VehiculoSeeder');
 
         User::truncate();
         $this->call('UserSeeder');
