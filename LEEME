@@ -290,4 +290,21 @@ SECCIOÓN 7: FUNCIONALIDADES ÚTILES
         			return Fabricante::all();
         		});
 
-	
+	PAGINACIÓN DE RESULTADOS EXTENSOS
+		Para el ejemplo, haremos lo siguiente:
+
+		1. Modificar en el Seeder Fabricante (100 Fabricantes)
+
+		2. Modificar en el Seeder Vehiculos (500 Vehiculos)
+
+		3. Ejecutar por consola:
+			php artisan migrate:refresh --seed
+
+		4. Modificar la función index del controlador Fabricante
+			//return Fabricante::all();
+			return Fabricante::simplePaginate(15);
+			return response()->json(array(
+            	'siguiente' => $fabricantes->nextPageUrl(), 
+            	'anterior' => $fabricantes->previousPageUrl() ,
+            	'datos' => $fabricantes->items(),
+        	), 200);

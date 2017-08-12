@@ -22,12 +22,18 @@ class FabricanteController extends Controller{
                 //return Fabricante::all();
 
         		//Aplicando CACHE
-        		$fabricantes = Cache::remember('fabricantes', 20/60, function(){
-        			return Fabricante::all();
+        		$fabricantes = Cache::remember('fabricantes', 15/60, function(){
+        			//return Fabricante::all();
+        			return Fabricante::simplePaginate(15);
         		});
 
                 //return response()->json(array('datos' => Fabricante::all()), 200);
-                return response()->json(array('datos' => $fabricantes), 200);
+                //return response()->json(array('datos' => $fabricantes), 200);
+                return response()->json(array(
+                	'siguiente' => $fabricantes->nextPageUrl(), 
+                	'anterior' => $fabricantes->previousPageUrl() ,
+                	'datos' => $fabricantes->items(),
+            	), 200);
 
         }
         /*
