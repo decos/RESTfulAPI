@@ -17,6 +17,9 @@ class Kernel extends HttpKernel {
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
 		//Deshabilitarlo unicamente si nunca vamos a utilizar formularios
 		//'App\Http\Middleware\VerifyCsrfToken',
+
+		//OAuth2 - Tranformación de las respuestas a JSON en caso de ocurrir alguna excepción
+		'\LucaDegasperi\OAuth2Server\Middleware\OAuthExceptionHandlerMiddleware',
 	];
 
 	/**
@@ -29,6 +32,8 @@ class Kernel extends HttpKernel {
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'auth.basic.once' => 'App\Http\Middleware\OnceAuth',
 		'guest' => 'App\Http\Middleware\RedirectIfAuthenticated',
+		//OAuth2 - Verificacion del Access Token
+		'oauth' => '\LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware',
 	];
 
 }

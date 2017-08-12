@@ -413,7 +413,30 @@ SECCIÓN 9: SEGURIDAD CON OAuth2: CONTROLANDO EL ACCESO Y VALIDANDO PETICIONES
 			"lucadegasperi/oauth2-server-laravel": "4.0.x@dev"
 
 
+	OBTENIENDO E INSTALANDO EL SERVIDOR DE OAuth2 EN LARAVEL
+		1. Agregar al archivo composer.json, nodo "require-dev"
+			"lucadegasperi/oauth2-server-laravel": "5.0.*"
 
+		2. Agregar a los providers del archivo config/app.php lo siguiente:
+			'LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider',
+			'LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider',
 
+		3. Agregar a los aliases del archivo config/app.php lo siguiente:
+			'Authorizer' => 'LucaDegasperi\OAuth2Server\Facades\Authorizer',
 
+		4. Incluir o publicar toda la configuración de esta dependencia
+			php artisan vendor:publish
 
+			- El siguiente archivo de agrega al directorio "config"
+				config/oauth2.php
+
+		5. Agregar al archivo "kernel" el middleware:
+			OAuth2 - Verificacion del Access Token
+			'oauth' => '\LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware'
+
+		6. Agregar al archivo "kernel" el middleware:
+			OAuth2 - Tranformación de las respuestas a JSON en caso de ocurrir alguna excepción
+			'\LucaDegasperi\OAuth2Server\Middleware\OAuthExceptionHandlerMiddleware',
+
+		7. Ejecutar en consola lo siguiente:
+			php artisan migrate:refresh --seed
