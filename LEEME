@@ -368,3 +368,51 @@ SECCIÓN 8: ACTUALIZANDO A LARAVEL 5.1
 			php artisan --version
 
 		
+SECCIÓN 9: SEGURIDAD CON OAuth2: CONTROLANDO EL ACCESO Y VALIDANDO PETICIONES
+
+	INTRODUCCIÓN A OAuth2
+		https://github.com/lucadegasperi/oauth2-server-laravel
+
+		Es una metodologia o una forma alternativa para la validacion de usuarios y para poder compartir recursos para diferentes clientes en una API RESTful.
+
+		Antes de OAuth u OAuth2:
+		- Un usuario era validado por "Stateless Authentication" que es una validacion de usuarios sin estado, que no se mantiene a traves de las diferentes peticiones.
+
+		Access Token: 
+			Elemento o codigo de un usuario que le permite ser validado al interior del sistema
+
+		Authorization Code: 
+			Es utilizado en un tipico especifico de validacion OAuth, código único.
+
+		Authorization Server: 
+			Servidor aparte o parte de la plataforma web (nuestro caso), que es el encargador de realizar la autorización del usuario y generar los Access Token.
+
+		Client: 	
+			Aplicación que tiene acceso a los recursos, el cliente no necesariamente el propietario de esos recursos.
+
+		Grant: 
+			Método para conceder permisos de funcionalidad del OAuth2
+
+		Reource Server:
+			Es nuestra API RESTful actual
+
+		Scope:
+			Tipos de permisos y accesos que puede tener nuestro servidor
+
+
+		1. CHOOOSING A GRANT
+			https://github.com/lucadegasperi/oauth2-server-laravel/blob/master/docs/authorization-server/choosing-grant.md
+
+			Diferentes metodos(4) de garantizar accesos a los usuarios.
+
+			Utilizaremos: Resource owner credentials grant
+
+
+
+
+
+
+
+
+
+
