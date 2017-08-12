@@ -406,10 +406,11 @@ SECCIÓN 9: SEGURIDAD CON OAuth2: CONTROLANDO EL ACCESO Y VALIDANDO PETICIONES
 			Diferentes metodos(4) de garantizar accesos a los usuarios.
 
 			Utilizaremos: Resource owner credentials grant
-				
 
 
-
+	REMOVIENDO LA VERSIÓN ANTERIOR A OAuth2 (opcional)
+		Eliminar la siguiente linea del archivo composer.json
+			"lucadegasperi/oauth2-server-laravel": "4.0.x@dev"
 
 
 
