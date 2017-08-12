@@ -278,5 +278,16 @@ SECCIOÓN 7: FUNCIONALIDADES ÚTILES
 		-Se agrega un grupo en la siguiente ruta:
 			C:\xampp\htdocs\RESTfulAPI\app\Http\routes.php
 
-	
+
+	CACHEANDO LAS RESPUESTAS PARA REDUCIR LA CARGA DE LA BASE DE DATOS
+		Ejemplo:
 		
+		-Agregar la siguiente clase en el controlador Fabricante
+			use Illuminate\Support\Facades\Cache;
+
+		-Consumir la CACHE de la siguiente manera
+			$fabricantes = Cache::remember('fabricantes', 20/60, function(){
+        			return Fabricante::all();
+        		});
+
+	
