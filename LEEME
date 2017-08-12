@@ -308,3 +308,63 @@ SECCIOÓN 7: FUNCIONALIDADES ÚTILES
             	'anterior' => $fabricantes->previousPageUrl() ,
             	'datos' => $fabricantes->items(),
         	), 200);
+
+SECCIÓN 8: ACTUALIZANDO A LARAVEL 5.1
+
+	https://laravel.com/docs/5.3/upgrade#upgrade-5.1.0
+
+	- Obtener la version de laravel que tengo instalada
+		php artisan -version
+
+	- Buscar la version en GITHUB
+		https://github.com/laravel/framework/blob/5.1/composer.json
+
+	- Modificar el archivo composer.json
+
+		ANTES:
+
+		"require": {
+			"laravel/framework": "5.0.*"
+		},
+		"require-dev": {
+			"phpunit/phpunit": "~4.0",
+			"phpspec/phpspec": "~2.1",
+			"fzaninotto/faker": "^1.6"
+		},
+
+		AHORA:
+
+		"require": {
+			"php": ">=5.5.9",
+			"laravel/framework": "5.1.*"
+		},
+		"require-dev": {
+			"fzaninotto/faker": "^1.6",
+			"mockery/mockery": "0.9.*",
+			"phpunit/phpunit": "~4.0",
+			"phpspec/phpspec": "~2.1",
+			"lucadegasperi/oauth2-server-laravel": "4.0.x@dev"
+		},
+
+	- Ejecutar por consola lo  siguiente
+		composer update
+
+	ERROR:
+	 	file_put_contents(C:\xampp\htdocs\RESTfulAPI/bootstrap/cache/services.json)
+		: failed to open stream: No such file or directory
+
+	SOLUCIÓN:
+		Este error esta relacionado con la ubicación de la carpeta CACHE
+
+		- En el archivo C:\xampp\htdocs\RESTfulAPI\bootstrap\autoload.php realizar la siguiente modificación.
+
+			$compiledPath = __DIR__.'/cache/compiled.php'; //Laravel 5.1
+
+		- Crear los siguientes directorios
+			bootstrap/cache
+			bootstrap/cache/.gitignore
+
+		- Validar que todo este funcionando y ejecutar por consola
+			php artisan --version
+
+		

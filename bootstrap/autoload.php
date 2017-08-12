@@ -27,7 +27,8 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$compiledPath = __DIR__.'/../storage/framework/compiled.php';
+//$compiledPath = __DIR__.'/../storage/framework/compiled.php'; //Laravel 5.0
+$compiledPath = __DIR__.'/cache/compiled.php'; //Laravel 5.1
 
 if (file_exists($compiledPath))
 {
