@@ -28,10 +28,13 @@ Route::controllers([
 //Sale de la filosofia REST (no es correcto)
 //Route::get('/','VehiculoController@showAll');
 
-//REST
-Route::resource('vehiculos', 'VehiculoController', array('only' => array('index', 'show')));
-Route::resource('fabricantes','FabricanteController', array('except' => array('edit', 'create')));
-Route::resource('fabricantes.vehiculos','FabricanteVehiculoController', array('except' => array('show', 'edit' , 'create')));
+//VERSIONAMIENTO
+Route::group(array('prefix' => 'api/v1.1'), function(){
+	//REST
+	Route::resource('vehiculos', 'VehiculoController', array('only' => array('index', 'show')));
+	Route::resource('fabricantes','FabricanteController', array('except' => array('edit', 'create')));
+	Route::resource('fabricantes.vehiculos','FabricanteVehiculoController', array('except' => array('show', 'edit' , 'create')));
+});
 
 // Agregar un control de rutas inexistentes
 // Agregar un patron y pintarlo como una expresion regular que va coincidir con ello
