@@ -273,3 +273,10 @@ SECCION 4: MEJORANDO LA SEGURIDAD Y FUNCIONAMIENTO DE LA API
 
 
 SECCIOÓN 7: FUNCIONALIDADES ÚTILES
+
+	AGREGANDO LA VERSION A LA RUTA DE LA API
+		-Se agrega un grupo en la siguiente ruta:
+			C:\xampp\htdocs\RESTfulAPI\app\Http\routes.php
+
+	
+		

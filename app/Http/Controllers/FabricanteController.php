@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 use App\Fabricante;
 
@@ -20,8 +21,13 @@ class FabricanteController extends Controller{
                 //return "Mostrando todos los fabricantes";
                 //return Fabricante::all();
 
-                return response()->json(array('datos' => Fabricante::all()), 200);
-                
+        		//Aplicando CACHE
+        		$fabricantes = Cache::remember('fabricantes', 20/60, function(){
+        			return Fabricante::all();
+        		});
+
+                //return response()->json(array('datos' => Fabricante::all()), 200);
+                return response()->json(array('datos' => $fabricantes), 200);
 
         }
         /*
