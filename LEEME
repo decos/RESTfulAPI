@@ -406,7 +406,7 @@ SECCIÓN 9: SEGURIDAD CON OAuth2: CONTROLANDO EL ACCESO Y VALIDANDO PETICIONES
 			Diferentes metodos(4) de garantizar accesos a los usuarios.
 
 			Utilizaremos: Resource owner credentials grant
-
+				
 
 
 
