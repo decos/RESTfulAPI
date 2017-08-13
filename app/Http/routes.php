@@ -36,6 +36,11 @@ Route::group(array('prefix' => 'api/v1.1'), function(){
 	Route::resource('fabricantes.vehiculos','FabricanteVehiculoController', array('except' => array('show', 'edit' , 'create')));
 });
 
+//Generar una respuesta en formato JSON 
+Route::post('oauth/access_token', function(){
+	return Response::json(Authorizer::issueAccessToken());
+});
+
 // Agregar un control de rutas inexistentes
 // Agregar un patron y pintarlo como una expresion regular que va coincidir con ello
 

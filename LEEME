@@ -440,3 +440,58 @@ SECCIÓN 9: SEGURIDAD CON OAuth2: CONTROLANDO EL ACCESO Y VALIDANDO PETICIONES
 
 		7. Ejecutar en consola lo siguiente:
 			php artisan migrate:refresh --seed
+
+
+	CONFIGURANDO Y PROBANDO EL SERVIDOR OAuth2
+
+		1. Crear seeder para la tabla oauth_clients
+			database/seeds/Oauth2Seeder.php
+		2. Agregar seeder al DatabaseSeeder
+			database/seeds/DatabaseSeeder.php
+
+		3. Configuración del grant_type
+			config/oauth2.php
+
+			- Agregar la siguiente linea:
+
+			'password' => array(
+                'class' => '\League\OAuth2\Server\Grant\PasswordGrant',
+                'callback' => 'App\Http\Controllers\Verificador@verificar',
+                'access_token_ttl' => 3600,
+            )
+
+            - Requiere tanto credenciales validas de un usuario y un cliente
+
+        4. Ejecutar en consola para crear el controlador Verificador:
+        	php artisan make:controller Verificador --plain
+
+    	5. Codear la función verificar en el controlador Verificador
+
+    	6. Ejecutar por postman la siguiente url usando el metodo POST
+    		http://localhost/RESTfulAPI/public/oauth/access_token
+
+    		ERROR: Peticion invalida por no enviar GRANT_TYPE
+
+    		SOL: 
+    			- Agregar la siguiente sentencia en el DatabaseSeeder
+    				DB::statement("SET FOREIGN_KEY_CHECKS = 0");
+
+				- Ejecutar por consola los siguientes comandos
+					composer dump-autoload
+					php artisan db:seed
+
+				- Agregar por la pestaña body:
+					grant_type 		: password
+					client_id		: id1
+					client_secret 	: secret1
+					username 		: fake@fake.com
+					password 		: algo
+
+			RETORNA: Access Token que tendra una duracion de 3600 segundos
+				{
+				    "access_token": "hLzeOU1H06QZqyrguSpPTlPcrNBgGFb1s5VFTit1",
+				    "token_type": "Bearer",
+				    "expires_in": 3600
+				}
+
+
