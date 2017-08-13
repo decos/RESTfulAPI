@@ -12,7 +12,10 @@ class FabricanteController extends Controller{
         
         public function __construct()
         {
-                $this->middleware('auth.basic.once', array(
+                /*$this->middleware('auth.basic.once', array(
+                                'only' => array('store', 'update', 'destroy')
+                        ));*/
+                $this->middleware('oauth', array(
                                 'only' => array('store', 'update', 'destroy')
                         ));
         }

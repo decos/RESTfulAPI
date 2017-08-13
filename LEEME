@@ -495,3 +495,14 @@ SECCIÓN 9: SEGURIDAD CON OAuth2: CONTROLANDO EL ACCESO Y VALIDANDO PETICIONES
 				}
 
 
+	PROTEGIENDO LOS RECURSOS Y OPERACIONES CON OAuth2
+
+		- Falta indicarle a LARAVEL cuando utilizar el middleware
+
+		1. Modificar en los constructores de los controladores Fabricante y FabricanteVehiculo el uso del middleware "oauth"
+
+			Metodo POST recibe el access_token por FORM-DATE
+
+			Metodo PUT, PATH Y DELETE por X-WWW-FORM-URLENCODED
+
+
