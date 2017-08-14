@@ -563,3 +563,9 @@ SECCIÓN 10: ACTUALIZANDO A LARAVEL 5.2
 		];
 
 	9. Copiar el archivo Controller.php del directorio app/Http/Controllers del GITHUB en el archivo app/Http/Controllers/Controller.php de nuestro proyecto actual
+
+
+SECCION 11: AUN NO TERMINA!
+
+	CREANDO UN VPS EN DigitalOcean
+		https://www.digitalocean.com/?refcode=c91e89d20b57
