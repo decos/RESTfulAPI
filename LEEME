@@ -506,3 +506,60 @@ SECCIÓN 9: SEGURIDAD CON OAuth2: CONTROLANDO EL ACCESO Y VALIDANDO PETICIONES
 			Metodo PUT, PATH Y DELETE por X-WWW-FORM-URLENCODED
 
 
+SECCIÓN 10: ACTUALIZANDO A LARAVEL 5.2
+	
+	Tener en cuenta las siguientes URLs
+		LARAVEL: https://laravel.com/docs/5.2/upgrade#upgrade-5.2.0
+		GITHUB: https://github.com/laravel/laravel/tree/5.2
+
+	1. Copiar el archivo en nuestro actual composer.json
+		https://github.com/laravel/laravel/blob/5.2/composer.json
+
+	2. Copiar el archivo auth.php del directorio config del GITHUB en el archivo auth.php de nuestro proyecto actual
+
+	3. Copiar el siguiente codigo del archivo app.php del GITHUB en el archivo app.php de nuestro proyecto actual
+
+		/*
+	    |--------------------------------------------------------------------------
+	    | Application Environment
+	    |--------------------------------------------------------------------------
+	    |
+	    | This value determines the "environment" your application is currently
+	    | running in. This may determine how you prefer to configure various
+	    | services your application utilizes. Set this in your ".env" file.
+	    |
+	    */
+	    'env' => env('APP_ENV', 'production'),
+
+    4. Eliminar del archivo compile.php lo siguiente:
+    	files =>
+    	//realpath(__DIR__.'/../app/Providers/BusServiceProvider.php'),
+		//realpath(__DIR__.'/../app/Providers/ConfigServiceProvider.php'),
+
+	5. Eliminar del archivo app.php lo siguiente:
+		providers =>
+		//'Illuminate\Routing\ControllerServiceProvider',
+		//'App\Providers\BusServiceProvider',
+
+	6. Eliminar el siguiente archivo
+		app/Providers/BusServiceProvider.php
+
+	7. Buscar y reemplazar la palabra "timestamps" por "nullableTimestamps" en el siguiente directorio:
+		database/migrations
+
+	8. Copiar la definicion de las siguientes clases y el atributo protected en el siguiente archivo:
+		app/Exceptions/Handler.php
+
+		use Illuminate\Validation\ValidationException;
+		use Illuminate\Auth\Access\AuthorizationException;
+		use Illuminate\Database\Eloquent\ModelNotFoundException;
+		use Symfony\Component\HttpKernel\Exception\HttpException;
+
+		protected $dontReport = [
+		    AuthorizationException::class,
+		    HttpException::class,
+		    ModelNotFoundException::class,
+		    ValidationException::class,
+		];
+
+	9. Copiar el archivo Controller.php del directorio app/Http/Controllers del GITHUB en el archivo app/Http/Controllers/Controller.php de nuestro proyecto actual
